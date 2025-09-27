@@ -114,7 +114,10 @@ export function AIAssistant() {
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-sm font-medium">{workflow.title}</span>
                   <div className="flex items-center gap-2">
-                    <Badge variant={workflow.status === "running" ? "default" : "secondary"}>
+                    <Badge 
+                      variant={workflow.status === "running" ? "default" : "secondary"}
+                      className={workflow.status === "running" ? "running-badge text-white" : ""}
+                    >
                       {workflow.status}
                     </Badge>
                     <Button 
@@ -174,7 +177,7 @@ export function AIAssistant() {
               <Button
                 key={index}
                 variant="ghost"
-                className="justify-start text-xs p-2 h-auto text-left text-muted-foreground hover:text-foreground"
+                className="command-button justify-start text-xs p-2 h-auto text-left text-muted-foreground hover:text-foreground"
                 onClick={() => setInput(command)}
               >
                 "{command}"
