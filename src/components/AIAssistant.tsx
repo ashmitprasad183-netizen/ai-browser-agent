@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Send, Zap, History, Settings, Play, Pause } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -22,6 +22,7 @@ interface Workflow {
 }
 
 export function AIAssistant() {
+  const [isTabActive, setIsTabActive] = useState(true);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
@@ -41,6 +42,15 @@ export function AIAssistant() {
       steps: ["Amazon search", "Flipkart search", "Price comparison"]
     }
   ]);
+
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      setIsTabActive(!document.hidden);
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+  }, []);
 
   const handleSend = () => {
     if (!input.trim()) return;
@@ -75,7 +85,7 @@ export function AIAssistant() {
   ];
 
   return (
-    <div className="chrome-extension-popup bg-background border border-border/50 shadow-2xl">
+    <div className={`chrome-extension-popup bg-background border border-border/50 shadow-2xl ${!isTabActive ? 'tab-inactive' : ''}`}>
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-border bg-gradient-to-r from-ai-primary/10 to-ai-secondary/10">
         <div className="flex items-center gap-2">
