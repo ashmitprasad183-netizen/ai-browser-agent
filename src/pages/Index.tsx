@@ -1,7 +1,11 @@
-import { ExtensionDemo } from "@/components/ExtensionDemo";
+import { AIAssistant } from "@/components/AIAssistant";
 
 const Index = () => {
-  return <ExtensionDemo />;
+  return (
+    <div className="chrome-popup-container">
+      <AIAssistant />
+    </div>
+  );
 };
 
 export default Index;

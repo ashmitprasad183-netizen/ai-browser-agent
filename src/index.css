@@ -138,11 +138,22 @@ All colors MUST be HSL.
     -webkit-text-fill-color: transparent;
   }
   
-  .chrome-extension-container {
+  /* Chrome Extension Popup Styles */
+  .chrome-popup-container {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    z-index: 9999;
+  }
+
+  .chrome-extension-popup {
     width: 380px;
-    height: 600px;
-    border-radius: 12px;
+    height: 500px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
+    backdrop-filter: blur(20px);
     box-shadow: var(--shadow-ai);
   }
   

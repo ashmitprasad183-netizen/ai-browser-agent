@@ -75,7 +75,7 @@ export function AIAssistant() {
   ];
 
   return (
-    <div className="chrome-extension-container bg-background">
+    <div className="chrome-extension-popup bg-background border border-border/50 shadow-2xl">
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-border bg-gradient-to-r from-ai-primary/10 to-ai-secondary/10">
         <div className="flex items-center gap-2">
